@@ -17,7 +17,7 @@ class Conversor:
         with file_audio as source:
             audio_text = r.record(source)
 
-        return r.recognize_google(audio_text) 
+        return r.recognize_google(audio_text, language = "es-ES") 
 
     @classmethod
     async def insert_audio(cls, audio_file):
