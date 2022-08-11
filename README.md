@@ -12,6 +12,7 @@
 
 3. Run the server.
     ```bash
+    cd src
     uvicorn app:app --reload
     ```
 
