@@ -1,7 +1,7 @@
 # Setup
 1. Create and activate Python virtual enviroment
     ```bash
-    pip3 -m venv venv
+    pip -m venv venv
     source venv/bin/activate
     ```
 
