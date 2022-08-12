@@ -1,8 +1,17 @@
 from controllers.conversor import Conversor
-from fastapi import FastAPI, UploadFile, File, BackgroundTasks
+from fastapi import UploadFile, File, BackgroundTasks, APIRouter
+
+router = APIRouter()
 
 
-async def start() :
+@router.post("/upload")
+def upload(background_tasks: BackgroundTasks, file: UploadFile = File(...)):
+
+        background_tasks.add_task(Conversor.insert_audio, file)
+        return {"success": "upload in progress", "file_name": file.filename}
+
+
+""" def start() :
     sever = FastAPI()
 
     @sever.post("/upload")
@@ -12,4 +21,4 @@ async def start() :
             return {"success": "upload in progress", "file_name": file.filename}
 
         except Exception as e:
-            return {"error": e.message, "file_name": file.filename}
+            return {"error": e.message, "file_name": file.filename} """
