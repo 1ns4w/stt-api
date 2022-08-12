@@ -1,5 +1,3 @@
-import speech_recognition as sr
-
 from controllers.conversor import Conversor
 from fastapi import FastAPI, UploadFile, File, BackgroundTasks
 
