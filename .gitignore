@@ -4,3 +4,4 @@ __pycache__/
 cachedir/
 *.mp3
 *.wav
+./**/*.mp3
