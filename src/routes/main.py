@@ -4,6 +4,7 @@ from fastapi import UploadFile, File, BackgroundTasks, APIRouter
 router = APIRouter()
 
 
+
 @router.post("/upload")
 def upload(background_tasks: BackgroundTasks, file: UploadFile = File(...)):
     background_tasks.add_task(Conversor.insert_audio, file)

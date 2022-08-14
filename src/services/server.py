@@ -4,3 +4,7 @@ from routes.main import router
 app = FastAPI()
 
 app.include_router(router, prefix='/api')
+
+@router.get("/")
+def index():
+    return {"message": "Hello World"}
