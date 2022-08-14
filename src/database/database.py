@@ -1,11 +1,11 @@
 import mongox
 from os import environ
-#from dotenv import load_dotenv
+from dotenv import load_dotenv
 
-#load_dotenv()
+load_dotenv()
 
 client = mongox.Client(environ.get("MONGODB_URI"))
-db = client.get_database(environ.get("DATABASE_NAME"))
+db = client.get_database(environ.get("MONGODB_NAME"))
 
 class Audio(mongox.Model):
     audio_file_name: str
