@@ -1,8 +1,8 @@
 import mongox
 from os import environ
-from dotenv import load_dotenv
+#from dotenv import load_dotenv
 
-load_dotenv()
+#load_dotenv()
 
 client = mongox.Client(environ.get("MONGODB_URI"))
 db = client.get_database(environ.get("DATABASE_NAME"))
