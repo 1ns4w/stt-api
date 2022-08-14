@@ -1,1 +1,1 @@
-python src/routes/main.py
+web: python src/app.py
