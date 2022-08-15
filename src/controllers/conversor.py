@@ -7,17 +7,15 @@ class Conversor:
 
     @classmethod
     def convert_audio(cls, audio_file):
-
         sound = convert_to_wav(audio_file)
-        sound.export('audio.wav', format = "wav")
+        print(len(sound.raw_data)/100)
 
         r = sr.Recognizer()
-        file_audio = sr.AudioFile('audio.wav')
+        print('init')
 
-        with file_audio as source:
-            audio_text = r.record(source)
+        file_data = sr.AudioData(frame_data=sound.raw_data, sample_rate=400, sample_width=1)
 
-        return r.recognize_google(audio_text, language = "es-PE")
+        return r.recognize_google(file_data, language = "es-PE")
 
     @classmethod
     async def insert_audio(cls, audio_file):
