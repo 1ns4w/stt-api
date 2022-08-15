@@ -8,12 +8,12 @@ class Conversor:
     @classmethod
     def convert_audio(cls, audio_file):
         sound = convert_to_wav(audio_file)
-        print(len(sound.raw_data)/100)
+        print(len(sound.raw_data)/16000)
 
         r = sr.Recognizer()
         print('init')
 
-        file_data = sr.AudioData(frame_data=sound.raw_data, sample_rate=400, sample_width=1)
+        file_data = sr.AudioData(frame_data=sound.raw_data, sample_rate=8000, sample_width=2)
 
         return r.recognize_google(file_data, language = "es-PE")
 
